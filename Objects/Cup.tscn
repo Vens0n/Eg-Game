@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://clivqbume8rum"]
+
+[ext_resource type="Texture2D" uid="uid://sl3v5i36kscb" path="res://Sprites/Cup.png" id="1_ot21b"]
+
+[node name="Cup" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_ot21b")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(-6, -6, -6, -4, -5, -4, -5, 2, -4, 2, -4, 7, -3, 7, -3, 8, 3, 8, 3, 7, 4, 7, 4, 2, 5, 2, 5, -4, 6, -4, 6, -6, 4, -6, 4, 1, 3, 2, 3, 6, 2, 7, -2, 7, -3, 6, -3, 2, -4, 1, -4, -6)

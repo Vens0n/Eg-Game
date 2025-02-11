@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=4 uid="uid://dvnvo8jtu7drj"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_lthc5"]
+[ext_resource type="Texture2D" uid="uid://xmow0ftlad0x" path="res://Sprites/Tilemap GUI.png" id="1_u0sif"]
+[ext_resource type="Texture2D" uid="uid://c6fcr2jo6sids" path="res://Sprites/Player/Blue.png" id="2_5la6a"]
+[ext_resource type="Texture2D" uid="uid://dsff2oj63gw1k" path="res://Sprites/Player/Eg.png" id="3_15p8j"]
+[ext_resource type="Theme" uid="uid://5vhjkg6jfw5l" path="res://Fonts/Main Font Theme.tres" id="5_bysyy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sj2mp"]
+texture = ExtResource("1_u0sif")
+texture_region_size = Vector2i(13, 13)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+2:2/0 = 0
+2:1/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gruyl"]
+tile_size = Vector2i(13, 13)
+sources/0 = SubResource("TileSetAtlasSource_sj2mp")
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_lthc5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1957.32, 1957.32)
+texture = ExtResource("2_5la6a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(245, -345)
+rotation = -0.768949
+scale = Vector2(11.1652, 11.1652)
+texture = ExtResource("3_15p8j")
+
+[node name="TileMap" type="TileMapLayer" parent="."]
+scale = Vector2(7, 7)
+tile_map_data = PackedByteArray("AAAFAAQAAAABAAIAAAAEAAQAAAABAAIAAAADAAQAAAABAAIAAAACAAQAAAABAAIAAAABAAQAAAABAAIAAAAAAAQAAAABAAIAAAD//wQAAAABAAIAAAD+/wQAAAABAAIAAAD9/wQAAAABAAIAAAD8/wQAAAABAAIAAAD7/wQAAAABAAIAAAD6/wQAAAABAAIAAAD6//3/AAABAAAAAAD6//7/AAABAAEAAAD6////AAABAAEAAAD6/wAAAAABAAEAAAD6/wEAAAABAAEAAAD6/wIAAAABAAEAAAD6/wMAAAABAAEAAAD7//3/AAABAAAAAAD7//7/AAABAAEAAAD7////AAABAAEAAAD7/wAAAAABAAEAAAD7/wEAAAABAAEAAAD7/wIAAAABAAEAAAD7/wMAAAABAAEAAAD8//3/AAABAAAAAAD8//7/AAABAAEAAAD8////AAABAAEAAAD8/wAAAAABAAEAAAD8/wEAAAABAAEAAAD8/wIAAAABAAEAAAD8/wMAAAABAAEAAAD9//3/AAABAAAAAAD9//7/AAABAAEAAAD9////AAABAAEAAAD9/wAAAAABAAEAAAD9/wEAAAABAAEAAAD9/wIAAAABAAEAAAD9/wMAAAABAAEAAAD+//3/AAABAAAAAAD+//7/AAABAAEAAAD+////AAABAAEAAAD+/wAAAAABAAEAAAD+/wEAAAABAAEAAAD+/wIAAAABAAEAAAD+/wMAAAABAAEAAAD///3/AAABAAAAAAD///7/AAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAAAAP3/AAABAAAAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAEAAAAAAAMAAAABAAEAAAABAP3/AAABAAAAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAACAP3/AAABAAAAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAADAP3/AAABAAAAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAADAAAAAAABAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAADAAMAAAABAAEAAAAEAP3/AAABAAAAAAAEAP7/AAABAAEAAAAEAP//AAABAAEAAAAEAAAAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAFAP3/AAABAAAAAAAFAP7/AAABAAEAAAAFAP//AAABAAEAAAAFAAAAAAABAAEAAAAFAAEAAAABAAEAAAAFAAIAAAABAAEAAAAFAAMAAAABAAEAAAD5//7/AAAAAAEAAAD5////AAAAAAEAAAD5/wAAAAAAAAEAAAD5/wEAAAAAAAEAAAD5/wIAAAAAAAEAAAD5/wMAAAAAAAEAAAAGAAMAAAACAAEAAAAGAAIAAAACAAEAAAAGAAEAAAACAAEAAAAGAAAAAAACAAEAAAAGAP//AAACAAEAAAAGAP7/AAACAAEAAAAGAP3/AAACAAAAAAAGAAQAAAACAAIAAAD5/wQAAAAAAAIAAAD5//3/AAAAAAAAAAD6//v/AAAAAAAAAAD+//v/AAABAAAAAAD7//v/AAABAAAAAAD8//v/AAABAAAAAAD9//v/AAABAAAAAAD+//z/AAABAAEAAAD9//z/AAABAAEAAAD8//z/AAABAAEAAAD7//z/AAABAAEAAAD6//z/AAAAAAEAAAABAPz/AAACAAEAAAABAPv/AAACAAAAAAD///v/AAABAAAAAAAAAPv/AAABAAAAAAD///z/AAABAAEAAAAAAPz/AAABAAEAAAA=")
+tile_set = SubResource("TileSet_gruyl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = -479.0
+offset_top = -417.0
+offset_right = -302.0
+offset_bottom = -377.0
+scale = Vector2(3.30774, 3.1717)
+theme = ExtResource("5_bysyy")
+text = "Eg Game
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+offset_left = -573.0
+offset_top = 17.0
+offset_right = -228.0
+offset_bottom = 57.0
+scale = Vector2(3.30774, 3.1717)
+theme = ExtResource("5_bysyy")
+text = "Press To Start"

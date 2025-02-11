@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjxtanv26ulyr"]
+
+[ext_resource type="Texture2D" uid="uid://g5v225iwir75" path="res://Sprites/Buttons/Right.png" id="1_0ntd8"]
+[ext_resource type="Texture2D" uid="uid://re6h1kpp3qvt" path="res://Sprites/Buttons/Right_Sel.png" id="2_o77yo"]
+[ext_resource type="Texture2D" uid="uid://b6aqbjb8ajq47" path="res://Sprites/Buttons/Up.png" id="3_mblwl"]
+[ext_resource type="Texture2D" uid="uid://c1do1uiastt6m" path="res://Sprites/Buttons/Up_Sel.png" id="4_e3o7x"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(7, 7)
+
+[node name="Left" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_right = 40.0
+offset_bottom = -1040.0
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 10
+
+[node name="Left2" type="TouchScreenButton" parent="Left"]
+position = Vector2(287, 777)
+scale = Vector2(-16, 16)
+texture_normal = ExtResource("1_0ntd8")
+texture_pressed = ExtResource("2_o77yo")
+action = "ui_left"
+visibility_mode = 1
+
+[node name="Right2" type="TouchScreenButton" parent="Left"]
+position = Vector2(372, 776)
+scale = Vector2(16, 16)
+texture_normal = ExtResource("1_0ntd8")
+texture_pressed = ExtResource("2_o77yo")
+action = "ui_right"
+visibility_mode = 1
+
+[node name="Right" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Jump" type="TouchScreenButton" parent="Right"]
+position = Vector2(-252, -264)
+scale = Vector2(16, 16)
+texture_normal = ExtResource("3_mblwl")
+texture_pressed = ExtResource("4_e3o7x")
+action = "ui_up"
+visibility_mode = 1

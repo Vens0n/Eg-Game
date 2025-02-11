@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1kffn4eumx7y"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_srw32"]
+[ext_resource type="Texture2D" uid="uid://dsff2oj63gw1k" path="res://Sprites/Player/Eg.png" id="1_wbmqy"]
+[ext_resource type="Texture2D" uid="uid://cmu7utlocfq7q" path="res://Sprites/Player/Grey.png" id="3_ibyb0"]
+[ext_resource type="Texture2D" uid="uid://c6fcr2jo6sids" path="res://Sprites/Player/Blue.png" id="4_pvwqk"]
+
+[sub_resource type="Gradient" id="Gradient_5dkvr"]
+colors = PackedColorArray(0.84375, 0.61013, 0.358771, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_ud0gv"]
+colors = PackedColorArray(0.226563, 0.226563, 0.226563, 1, 1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epfca"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57jh3"]
+radius = 5.0
+
+[sub_resource type="Gradient" id="Gradient_tvovn"]
+colors = PackedColorArray(0, 0.603922, 0.894118, 1, 0, 0.891319, 0.980469, 1)
+
+[sub_resource type="Gradient" id="Gradient_yi1uk"]
+colors = PackedColorArray(0.503906, 0.503906, 0.503906, 1, 1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slork"]
+radius = 6.6
+
+[node name="Player" type="RigidBody2D"]
+continuous_cd = 2
+script = ExtResource("1_srw32")
+
+[node name="Death Particles" type="CPUParticles2D" parent="."]
+physics_interpolation_mode = 1
+emitting = false
+amount = 128
+one_shot = true
+explosiveness = 0.95
+randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 5.0
+spread = 180.0
+initial_velocity_min = 256.25
+initial_velocity_max = 300.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_5dkvr")
+color_initial_ramp = SubResource("Gradient_ud0gv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_epfca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_57jh3")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 350
+lifetime = 2.0
+spread = 180.0
+initial_velocity_max = 43.75
+linear_accel_min = -100.0
+linear_accel_max = 100.0
+radial_accel_min = -100.0
+radial_accel_max = 100.0
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_tvovn")
+color_initial_ramp = SubResource("Gradient_yi1uk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -0.5)
+texture = ExtResource("1_wbmqy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_slork")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Immunity" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="boostbar" type="Node2D" parent="."]
+position = Vector2(-11, 0)
+
+[node name="Greypart" type="Sprite2D" parent="boostbar"]
+position = Vector2(0, -6.5)
+scale = Vector2(3, 13)
+texture = ExtResource("3_ibyb0")
+
+[node name="holder" type="Node2D" parent="boostbar"]
+
+[node name="Bluepart" type="Sprite2D" parent="boostbar/holder"]
+position = Vector2(0, -6.5)
+scale = Vector2(3, 13)
+texture = ExtResource("4_pvwqk")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Immunity" to="." method="_on_timer_timeout"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=4 uid="uid://f7nyw66qkvip"]
+
+[ext_resource type="PackedScene" uid="uid://d1kffn4eumx7y" path="res://Player.tscn" id="1_yxpn4"]
+[ext_resource type="Script" path="res://Follow Player.gd" id="2_2hnp5"]
+[ext_resource type="PackedScene" uid="uid://clivqbume8rum" path="res://Objects/Cup.tscn" id="2_5hjp5"]
+[ext_resource type="Texture2D" uid="uid://df40eyo1gphr" path="res://Sprites/Tile.png" id="3_p1mta"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6meoa"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4s0dm"]
+texture = ExtResource("3_p1mta")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_8a3u0"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4s0dm")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_yxpn4")]
+position = Vector2(0, -18)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 40)
+scale = Vector2(-300.244, 80)
+texture = SubResource("PlaceholderTexture2D_6meoa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -73)
+scale = Vector2(1, 1.88)
+zoom = Vector2(3.725, 3.725)
+script = ExtResource("2_2hnp5")
+
+[node name="Cup" parent="." instance=ExtResource("2_5hjp5")]
+position = Vector2(53, -8)
+
+[node name="TileMap" type="TileMap" parent="."]
+physics_interpolation_mode = 1
+tile_set = SubResource("TileSet_8a3u0")
+format = 2
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD7/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAP//AAAAAAAAAAAFAP7/AAAAAAAAAAAFAP3/AAAAAAAAAAAFAPz/AAAAAAAAAAAFAPv/AAAAAAAAAAAFAPr/AAAAAAAAAAD4//7/AAAAAAAAAAD5//7/AAAAAAAAAAD6//7/AAAAAAAAAAD7//7/AAAAAAAAAAD8//7/AAAAAAAAAAD///v/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_8a3u0")
